@@ -33,9 +33,7 @@ export const UseInsertDocument = (docCollection) => {
 
   const checkCancelBeforeDispath = (action) => {
     if (!cancelled) {
-      return
-    } else {
-      dispatch(action)
+      dispatch(action);
     }
   }
 
@@ -54,7 +52,7 @@ export const UseInsertDocument = (docCollection) => {
       )
 
       checkCancelBeforeDispath({
-        type: "INSERTD_DOC",
+        type: "INSERTED_DOC",
         payload: insertedDocument
       })
 

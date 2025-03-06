@@ -3,7 +3,7 @@ import styles from "./createPost.module.css"
 
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import { useAuthValue } from '../../context/authContext';
+import { useAuthValue } from '../../context/AuthContext';
 import { UseInsertDocument } from '../../hooks/UseInsertDocument';
 
 const CreatePost = () => {
@@ -35,9 +35,9 @@ const CreatePost = () => {
 
     const tagsArray = tags.split(",").map((tag) => tag.trim().toLowerCase());
 
-    // checar todo valores
-    if (!title || !tags || !image || !body) {
-      setFormError("Por Favor, preencha todos os campos corretamente.");
+    // check values
+    if (!title || !image || !tags || !body) {
+      setFormError("Por favor, preencha todos os campos!");
     }
 
     console.log(tagsArray);
@@ -61,9 +61,12 @@ const CreatePost = () => {
       uid: user.uid,
       createdBy: user.displayName,
     });
-    //redirect home page
-    navigate("/")
-  }
+
+    // redirect to home page
+    navigate("/");
+  };
+
+
 
   return (
     <div className={styles.create_post}>
